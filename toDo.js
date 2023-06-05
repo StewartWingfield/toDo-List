@@ -1,31 +1,26 @@
-let arrayOfTodos = []
+let listItems;
+let arrayOfTodos;
 
+const fetchTodos = () => {
+  fetch("https://jsonplaceholder.typicode.com/todos")
+    .then((response) => response.json())
+    .then((data) => {
+      arrayOfTodos = data;
+    });
+};
 
- const fetchTodos = () => {
-    fetch('https://jsonplaceholder.typicode.com/todos')
-     .then(res => res.json())
-     .then(json => console.log(json))
-     .then(data => arrayOfTodos = data)
-     console.log(arrayOfTodos)
- }
-
-
-const logTodos = (arr) => {
-    fetchTodos()
-    for (i = 0;  i < arr; i++){
-    console.log("todo for user " + arrayOfTodos[i].arr);
-    }
-}
-
-logTodos(userId)
-logTodos(id)
-logTodos(title)
-logTodos(completed)
-
+const logTodos = () => {
+  console.log(arrayOfTodos);
+};
 
 const populateTodos = () => {
-    fetchTodos()
-    .then(res => res.json())
-    .then(todos => { 
-    })
-}
+  if (arrayOfTodos) {
+    let orderedList = document.getElementById("todo-list");
+    arrayOfTodos.forEach((todo) => {
+      listItems = document.createElement("li");
+      const titleToDo = todo.title;
+      listItems.innerHTML = `${titleToDo}`;
+      orderedList.appendChild(listItems);
+    });
+  }
+};
