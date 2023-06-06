@@ -10,7 +10,15 @@
     
     <button onclick="fetchTodos()">Fetch Todos</button>
     <button onclick="logTodos()">Log Todos</button>
-    <button onclick="populateTodos()">Populate Todos</button>
+    <button onclick="filterData()">Filter</button>
+    <button onclick="clearData()">Clear</button>
+    <button onclick="filterCompleted(true)">Completed</button>
+    <button onclick="filterCompleted(false)">Not Completed</button>
+    <input type="number" id="userIdInput" min="1" max="10">
+    <!-- <button onclick="populateTodos()">Populate Todos</button> -->
+    <ol id="dataList">
+
+    </ol>
     <ol id="todo-list">
     
     </ol>
